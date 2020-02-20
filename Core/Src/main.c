@@ -171,7 +171,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  //printf("\r\nPrende led pc13\r\n");
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
 	  HAL_Delay(100);
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
@@ -463,7 +463,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
 		velocidadRPM = velocidadPulsos/(168*44) * 60;
 		pulsosAnt = pulsosAct;
 		if(imprimir){
-			printf("\r\nVelocidad: %f\r\n", velocidadRPM);
+			//printf("\r\nVelocidad: %f\r\n", velocidadRPM);
 		}
 	}else if(htim->Instance == TIM3){
 		if(__HAL_TIM_GET_COUNTER(&htim3) > (htim->Init.Period+1)/2){ //Underflow
@@ -474,8 +474,10 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim){
 	}
 }
 
-void HAL_TIM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+{
 	printf("\r\nPulso\r\n");
+	printf("\r\n Duty Cycle: %" PRIu32 "\r\n", __HAL_TIM_GET_COMPARE(&htim2,TIM_CHANNEL_1));
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){

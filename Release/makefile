@@ -37,8 +37,8 @@ Control_Motor_LA.list \
 all: Control_Motor_LA.elf secondary-outputs
 
 # Tool invocations
-Control_Motor_LA.elf: $(OBJS) $(USER_OBJS) C:\Users\emicaron\STM32CubeIDE\workspace_1.1.0\Control_Motor_LA\STM32F103C8TX_FLASH.ld
-	arm-none-eabi-gcc -o "Control_Motor_LA.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\emicaron\STM32CubeIDE\workspace_1.1.0\Control_Motor_LA\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Control_Motor_LA.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Control_Motor_LA.elf: $(OBJS) $(USER_OBJS) C:\Users\gabgodoy\OneDrive\ -\ everis\Documentos\PFE-MECATRONICA\ControlMotorLA\STM32F103C8TX_FLASH.ld
+	arm-none-eabi-gcc -o "Control_Motor_LA.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\gabgodoy\OneDrive - everis\Documentos\PFE-MECATRONICA\ControlMotorLA\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Control_Motor_LA.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
